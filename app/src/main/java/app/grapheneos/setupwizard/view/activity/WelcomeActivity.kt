@@ -1,5 +1,6 @@
 package app.grapheneos.setupwizard.view.activity
 
+import android.app.admin.DevicePolicyManager
 import android.os.Bundle
 import android.view.MotionEvent
 import android.view.View
@@ -9,6 +10,7 @@ import app.grapheneos.setupwizard.R
 import app.grapheneos.setupwizard.action.WelcomeActions
 import app.grapheneos.setupwizard.android.ConsecutiveTapsGestureDetector
 import app.grapheneos.setupwizard.android.ConsecutiveTapsGestureDetector.OnConsecutiveTapsListener
+import java.util.Locale
 
 
 class WelcomeActivity : AppCompatActivity() {
@@ -23,6 +25,11 @@ class WelcomeActivity : AppCompatActivity() {
             this.onConsecutiveTapsListener,
             findViewById<View>(R.id.glif_layout)
         )
+    }
+
+    override fun onResume() {
+        super.onResume()
+        this.consecutiveTapsGestureDetector?.resetCounter()
     }
 
     override fun dispatchTouchEvent(ev: MotionEvent): Boolean {
