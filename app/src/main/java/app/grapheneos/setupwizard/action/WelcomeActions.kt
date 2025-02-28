@@ -1,17 +1,20 @@
 package app.grapheneos.setupwizard.action
 
-import android.app.Activity
 import android.widget.Toast
+import androidx.activity.result.ActivityResultLauncher
+import androidx.appcompat.app.AppCompatActivity
 import app.grapheneos.setupwizard.R
+import com.journeyapps.barcodescanner.ScanContract
+import com.journeyapps.barcodescanner.ScanOptions
 
 object WelcomeActions {
     private var qrToast: Toast? = null
+    private var barcodeLauncher: ActivityResultLauncher<ScanOptions>? = null
 
-    fun handleConsecutiveTap(welcomeTapCounter: Int, activity: Activity) {
+    fun handleConsecutiveTap(welcomeTapCounter: Int, activity: AppCompatActivity) {
         qrToast?.cancel()
         if (welcomeTapCounter >= 6) {
-            // Start the QR code provisioning flow
-
+            startQrProvisioning();
         } else {
             if (welcomeTapCounter < 3) {
                 return
@@ -25,6 +28,36 @@ object WelcomeActions {
             qrToast = Toast.makeText(activity, msg, Toast.LENGTH_LONG)
             qrToast!!.show()
         }
+
+    }
+
+    fun initQrProvisioning(activity: AppCompatActivity) {
+        barcodeLauncher = activity.registerForActivityResult(
+            ScanContract()
+        ) { result ->
+            if (result.contents == null) {
+                Toast.makeText(activity, R.string.qr_provisioning_cancelled, Toast.LENGTH_LONG).show()
+            } else {
+                launchQrProvisioning(activity, result.contents)
+            }
+        }
+    }
+
+    fun startQrProvisioning() {
+        val options = ScanOptions()
+        options.setDesiredBarcodeFormats(ScanOptions.QR_CODE)
+        options.setBeepEnabled(false)
+        barcodeLauncher?.launch(options)
+    }
+
+    fun launchQrProvisioning(activity: AppCompatActivity, contents: String) {
+
+        Toast.makeText(
+            activity,
+            "Scanned: " + contents,
+            Toast.LENGTH_LONG
+        )
+            .show()
 
     }
 }

@@ -7,4 +7,5 @@
         <item quantity="one">%1$s more tap to start QR code setup</item>
         <item quantity="other">%1$s more taps to start QR code setup</item>
     </plurals>
+    <string name="qr_provisioning_cancelled">QR provisioning cancelled</string>
 </resources>
