@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">SetupWizardProvisionTest</string>
     <string name="welcome">Welcome to Provisioning Test</string>
+    <string name="next">Next</string>
 
     <!-- These strings must be moved to SetupWizard! -->
     <plurals name="qr_provision_toast">
@@ -8,4 +9,18 @@
         <item quantity="other">%1$s more taps to start QR code setup</item>
     </plurals>
     <string name="qr_provisioning_cancelled">QR provisioning cancelled</string>
+    <string name="preparing_provisioning">Provisioning the device&#8230;</string>
+    <string name="qr_parse_failed">Failed to parse the QR code contents!</string>
+    <string name="qr_missing_parameter">QR code parameter missing:&#160;</string>
+    <string name="setting_up_wifi">Setting up the WiFi connection&#8230;</string>
+    <string name="wifi_failed">Failed to set up the WiFi connection!</string>
+    <string name="downloading_admin_app">Downloading the administrator application&#8230;</string>
+    <string name="download_progress">%1$.1f of %2$.1f Mb</string>
+    <string name="download_failed">Failed to download the administrator application!&#160;</string>
+    <string name="checksum_failed">Failed to validate the administrator application - checksum is incorrect!</string>
+    <string name="installing_admin_app">Installing the administrator application&#8230;</string>
+    <string name="install_failed">Failed to install the administrator application!&#160;</string>
+    <string name="install_successful">Administrator application is installed!</string>
+    <string name="error_title">Error</string>
+    <string name="button_ok">OK</string>
 </resources>

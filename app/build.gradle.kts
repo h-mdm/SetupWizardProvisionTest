@@ -9,7 +9,7 @@ android {
 
     defaultConfig {
         applicationId = "app.grapheneos.setupwizard"
-        minSdk = 24
+        minSdk = 28
         //noinspection EditedTargetSdkVersion
         targetSdk = 35
         versionCode = 1
@@ -53,4 +53,8 @@ dependencies {
     androidTestImplementation("androidx.test.ext:junit:1.2.1")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.6.1")
     implementation("com.journeyapps:zxing-android-embedded:4.3.0")
+
+    // Jackson
+    implementation("com.fasterxml.jackson.core:jackson-core:2.9.4")
+    implementation("com.fasterxml.jackson.core:jackson-databind:2.9.4")
 }
