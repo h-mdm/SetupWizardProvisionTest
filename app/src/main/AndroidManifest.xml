@@ -28,11 +28,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".view.activity.ProvisioningActivity" />
+        <activity android:name=".view.activity.MdmInstallActivity" />
         <activity
             android:name="com.journeyapps.barcodescanner.CaptureActivity"
             android:screenOrientation="portrait"
             tools:replace="screenOrientation"
             android:exported="false"/>
+        <activity android:name=".view.activity.ProvisionActivity" />
     </application>
 </manifest>

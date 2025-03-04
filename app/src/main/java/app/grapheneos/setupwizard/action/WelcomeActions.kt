@@ -5,7 +5,7 @@ import android.widget.Toast
 import androidx.activity.result.ActivityResultLauncher
 import androidx.appcompat.app.AppCompatActivity
 import app.grapheneos.setupwizard.R
-import app.grapheneos.setupwizard.view.activity.ProvisioningActivity
+import app.grapheneos.setupwizard.view.activity.MdmInstallActivity
 import com.journeyapps.barcodescanner.ScanContract
 import com.journeyapps.barcodescanner.ScanOptions
 
@@ -53,8 +53,8 @@ object WelcomeActions {
     }
 
     fun launchQrProvisioning(activity: AppCompatActivity, contents: String) {
-        val intent = Intent(activity, ProvisioningActivity::class.java)
-        intent.putExtra(ProvisioningActions.EXTRA_QR_CONTENTS, contents)
+        val intent = Intent(activity, MdmInstallActivity::class.java)
+        intent.putExtra(MdmInstallActions.EXTRA_QR_CONTENTS, contents)
         SetupWizard.startActivity(activity, intent)
     }
 }
